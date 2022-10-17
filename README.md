@@ -7,6 +7,7 @@ simple restful web app
  - cd Restful-api-example
  - docker build .
  - docker run -p 8099:8099 <image>
+
 Then in http://127.0.0.1:8099 you can see simple web app.
 After testing this app you can delete docker image and container.
 
