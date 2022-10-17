@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hello wolrd</title>
+</head> 
+<body>
+	<script type="text/javascript" src="{{ url_for('static', filename='functions.js') }}"></script>
+	<h1>
+		hello, database!
+	</h1>
+	{% block users %}
+	{% endblock %}
+</body>
+</html>

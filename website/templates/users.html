@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block users %}
+<p>
+		<input type="text" name="nickname" placeholder="input nickname"/>
+		<input type="email" name="email" placeholder="input email"/>
+		<input type="number" name="rating" placeholder="input rating"/>
+		<input type="button" value="send" onClick="addUser( 
+					document.getElementsByName('nickname')[0].value,
+					document.getElementsByName('email')[0].value,
+					document.getElementsByName('rating')[0].value
+				 )" /> 
+</p>
+		<!-- { document.getElementsByName('txtJob')[0].value } -->
+	{% for user in users %}
+		<p>
+<style>
+div { 
+	background-color: yellow;
+	display:inline-block;
+	border: solid 1px;
+	margin: 5px 5px; 
+ }
+</style>
+			<div id={{ user['id'] }} onClick="modifying( {{ user['id'] }} )">
+				<div>
+				{{ user["id"] }}
+				</div>
+				<div>
+				{{ user["nickname"] }}
+				</div>
+				<div>
+				{{ user["email"] }}
+				</div>
+				<div>
+				{{ user["rating"] }}
+				</div>
+			</div>
+			<input type="button" value="delete" onClick="deleteUser( {{ user['id'] }} )" />
+			<input type="button" value="modify" onClick="modifying( {{ user['id'] }} )" />
+		</p>
+	{% endfor %}
+{% endblock %}
