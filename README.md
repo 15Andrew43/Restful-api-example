@@ -21,7 +21,7 @@ After testing this app you can delete docker image and container.
  - python main.py
 
 Then in http://127.0.0.1:8099 you can see simple web app.
-After testing this app you should exec: 
+After testing this app you can exec: 
  - deactivate
  - cd ..
  - rm -rf env
