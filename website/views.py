@@ -1,7 +1,18 @@
 from flask import Blueprint, render_template, request, flash #, redirect, url_for
 from .models import User
 from . import db
+from functools import wraps
 
+
+def logger(func):
+	@wraps(func)
+	def wrapper(*args, **kwargs):
+		with open("log.txt", "a+") as log_file:
+			log_file.write("================================LOGGER============================\n")
+			log_file.write(str(request))
+			log_file.write('\n')
+		return func(*args, **kwargs)
+	return wrapper
 
 
 
@@ -11,6 +22,7 @@ next_id = 0
 views = Blueprint('views', __name__)
 
 @views.route('/users', methods=['POST'])
+@logger
 def add_user():
 	global next_id
 	if request.method == 'POST':
@@ -38,6 +50,7 @@ def add_user():
 
 
 @views.route('/users/<id>', methods=['PUT'])
+@logger
 def edit_user(id):
 	print("\n\n\n")
 	print("===================PUT========================")
@@ -61,6 +74,7 @@ def edit_user(id):
 
 
 @views.route('/users/<id>', methods=['DELETE'])
+@logger
 def delete_user(id):
 	print("\n\n\n")
 	# print(request.json)
@@ -75,10 +89,12 @@ def delete_user(id):
 
 
 @views.route('/')
+@logger
 def home():
 	return render_template("base.html")
 
 @views.route('/users', methods=['GET'])
+@logger
 def users():
 	print("\n\n\n")
 	print("================GET===============")
@@ -95,6 +111,7 @@ def users():
 
 
 @views.route('/error')
+@logger
 def error():
 	return "error", 500
 
