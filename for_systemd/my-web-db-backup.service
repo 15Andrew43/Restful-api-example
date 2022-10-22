@@ -1,0 +1,10 @@
+[Unit]
+Description=my web db backup via curl
+Requires=my-web-db.service
+After=my-web-db.service
+
+
+[Service]
+Type=oneshot
+ExecStart=/home/avborovets/backup.sh
+StandardError=syslog

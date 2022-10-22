@@ -1,0 +1,12 @@
+[Unit]
+Description=my web db
+Requires=docker.service
+After=docker.service
+
+[Service]
+ExecStart=/usr/bin/docker run -d --rm -p 8099:8099 --name web-db web-db
+ExecStop=/usr/bin/docker stop web-db
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
