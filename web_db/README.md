@@ -25,8 +25,3 @@ After testing this app you can exec:
  - deactivate
  - cd ..
  - rm -rf env
-
-
-To run tests:
- - cd Restful-api-example
- - pytest -v tests/
