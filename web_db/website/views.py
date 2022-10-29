@@ -5,6 +5,7 @@ from functools import wraps
 import json
 
 
+
 def logger(func):
 	@wraps(func)
 	def wrapper(*args, **kwargs):
@@ -18,7 +19,7 @@ def logger(func):
 
 
 
-next_id = 0
+next_id = 1
 
 views = Blueprint('views', __name__)
 
