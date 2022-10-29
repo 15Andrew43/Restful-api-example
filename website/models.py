@@ -14,4 +14,7 @@ class User(db.Model):  # UserMixiт
 		self.rating = rating
 
 	def __repr__(self):
-		return f'<|> User {self.nickname} <|>'
+		return f"<|> User {self.nickname} <|>"
+
+	def to_json(self):
+		return {"id": f"{self.id}", "nickname": f"{self.nickname}", "email": f"{self.email}", "rating": f"{self.rating}"}

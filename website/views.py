@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash #, redirect, url_fo
 from .models import User
 from . import db
 from functools import wraps
+import json
 
 
 def logger(func):
@@ -9,7 +10,7 @@ def logger(func):
 	def wrapper(*args, **kwargs):
 		with open("log.txt", "a+") as log_file:
 			log_file.write("================================LOGGER============================\n")
-			log_file.write(str(request))
+			log_file.write(str(request.__dict__))
 			log_file.write('\n')
 		return func(*args, **kwargs)
 	return wrapper
@@ -116,3 +117,19 @@ def error():
 	return "error", 500
 
 
+
+@views.route('/api/users', methods=['GET'])
+@logger
+def api_users():
+	if request.method == 'GET':
+		print("\n\n\n")
+		print("================GET USERS===============")
+		print("\n\n\n")
+
+
+		users = db.session.query(User).all()
+		print("________________________________________________________________________________")
+		print(users)
+		print("________________________________________________________________________________")
+
+		return json.dumps(list(map(lambda user: user.to_json(), users)))
