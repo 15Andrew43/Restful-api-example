@@ -34,8 +34,11 @@ pipeline {
                 sh '''
                     cd ..
                     git clone https://github.com/15Andrew43/Ansible-example.git
+                    cd Ansible-example
+                    git checkout dev
                     cd deploy
-                    ansible-playbook playbooks/project.yml
+                    ansible-playbook playbooks/site.yaml
+                    ansible-playbook playbooks/project.yaml
                 '''
             }
         }
