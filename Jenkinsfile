@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''
-                    docker stop web_dbbbbbb || true
+                    docker stop web_dbbbbbb
                     cd web_db
                     docker stop web_db
                     docker build -t web_db .
