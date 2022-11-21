@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''
-                    cd restful_api_example
+                    cd web_db
                     docker stop restful_api_example || true
                     docker build -t restful_api_example .
                 '''
