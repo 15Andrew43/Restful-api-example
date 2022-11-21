@@ -37,8 +37,8 @@ pipeline {
                     cd Ansible-example
                     git checkout dev
                     cd deploy
-                    ansible-playbook playbooks/site.yaml
-                    ansible-playbook playbooks/project.yaml
+                    ansible-playbook playbooks/site.yml
+                    ansible-playbook playbooks/project.yml
                 '''
             }
         }
