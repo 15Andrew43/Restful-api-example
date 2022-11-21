@@ -31,8 +31,8 @@ pipeline {
                 sh("docker tag restful_api_example avborovets/restful_api_example")
                 sh("docker push avborovets/restful_api_example")
                 echo 'Pushed to DockerHub'
+                sh("cd .. && rm -rf Ansible-example || true")
                 sh '''
-                    cd ..
                     git clone https://github.com/15Andrew43/Ansible-example.git
                     cd Ansible-example
                     git checkout dev
