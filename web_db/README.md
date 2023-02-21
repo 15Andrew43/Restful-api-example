@@ -12,6 +12,9 @@ Then in http://127.0.0.1:8099 you can see simple web app.
 After testing this app you can delete docker image and container.
 
 
+docker run -p 8099:8099 --rm --name my_web_db avborovets/restful_api_example
+
+
 # To run this project in virtualenv:
  - git clone <Restful-api-example>
  - python3 -m venv env
