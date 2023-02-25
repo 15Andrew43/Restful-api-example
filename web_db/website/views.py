@@ -4,6 +4,8 @@ from . import db
 from functools import wraps
 import json
 
+import socket
+socketName = socket.gethostbyname(socket.gethostname())
 
 
 def logger(func):
@@ -93,7 +95,7 @@ def delete_user(id):
 @views.route('/')
 @logger
 def home():
-	return render_template("base.html")
+	return render_template("base.html", socketName=socketName)
 
 @views.route('/users', methods=['GET'])
 @logger
@@ -108,7 +110,7 @@ def users():
 	print(users)
 	print("________________________________________________________________________________")
 
-	return render_template("users.html", users=users)
+	return render_template("users.html", users=users, socketName=socketName)
 
 
 
