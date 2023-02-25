@@ -5,7 +5,7 @@ simple restful web app
 # To run this project in docker:
  - git clone <Restful-api-example>
  - cd Restful-api-example/web_db
- - docker build .
+ - docker build -t my_web_db .
  - docker run -p 8099:8099 <image>
 
 Then in http://127.0.0.1:8099 you can see simple web app.
