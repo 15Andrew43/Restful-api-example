@@ -7,7 +7,10 @@
 <body>
 	<script type="text/javascript" src="{{ url_for('static', filename='functions.js') }}"></script>
 	<h2>
-		{{ socketName }}
+		Real ip (curl ifconfig.me)                             : {{ realIp }}
+	</h2>
+	<h2>
+		socketName = socket.gethostbyname(socket.gethostname()): {{ socketName }}
 	</h2>
 	<h1>
 		hello, database!
