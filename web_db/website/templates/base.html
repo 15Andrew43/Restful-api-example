@@ -6,12 +6,20 @@
 </head> 
 <body>
 	<script type="text/javascript" src="{{ url_for('static', filename='functions.js') }}"></script>
-	<h2>
-		Real ip (curl ifconfig.me)                             : {{ realIp }}
-	</h2>
-	<h2>
-		socketName = socket.gethostbyname(socket.gethostname()): {{ socketName }}
-	</h2>
+	<table>
+      <tr>
+        <td>
+            <h2 style="margin-right: 20px">WWW ip</h2>
+        </td>
+        <td><h2>{{ realIp }}</h2></td>
+      </tr>
+      <tr>
+        <td>
+            <h2>Local ip</h2>
+        </td>
+        <td><h2>{{ socketName }}</h2></td>
+      </tr>
+    </table>
 	<h1>
 		hello, database!
 	</h1>

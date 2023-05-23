@@ -44,6 +44,12 @@ def add_user():
 
     next_id += 1
 
+    if not nickname:
+        nickname = 'default name'
+    if not email:
+        email = 'default@gmail.com'
+    if not rating:
+        rating = 100500
     user = User(id=next_id, nickname=nickname, email=email, rating=rating)
     db.session.add(user)
     db.session.commit()
@@ -64,6 +70,13 @@ def edit_user(id):
     nickname = request.get_json()['nickname']
     email = request.get_json()['email']
     rating = request.get_json()['rating']
+
+    if not nickname:
+        nickname = 'default name'
+    if not email:
+        email = 'default@gmail.com'
+    if not rating:
+        rating = 100500
 
     User.query.filter_by(id=id).update({
         'id': id,
